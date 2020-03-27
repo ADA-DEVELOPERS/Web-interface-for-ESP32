@@ -1,0 +1,87 @@
+<!--
+File Name: Firmware_TT
+Plugin URI: http://shipilovfamily.com/ada-team
+Description: Файл создан для того чтоб модефецировать прошивку под Датчик давления.
+Author: Shipilov Anaioliy and Timkov Daniil
+Author URI: http://shipilovfamily.com/
+Version: 2.0.1
+-->
+
+<!DOCTYPE html>
+<html lang="ru-RU">
+  <head>
+    
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main.css">
+
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="name-tt">Значения <b class="b-tt">"Датчика"</b></h1>
+      <hr class="hr-tt">
+      <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-2">
+          <div class="icon-home-page infom-home-page">
+            <img src="images/homeoff.png" id="homepng" width="55">
+          </div>
+          <p class="infom-home-page" id="home"></p>
+        </div>
+        <div class="col-md-2">
+          <div class="icon-home-page infom-home-page">
+            <img src="images/wifioff.png" id="wifipng" width="55">
+          </div>
+          <p class="infom-home-page" id="wifi"></p>
+        </div>
+        <div class="col-md-2">
+          <div class="icon-home-page infom-home-page">
+            <img src="images/mqttoff.png" id="mqttpng" width="55">
+          </div>
+          <p class="infom-home-page" id="mqtt"></p>
+        </div>
+        <div class="col-md-3">
+        </div>
+      </div>
+      <hr class="hr-tt">
+        <div class="row">
+          <div class="col-md-3">
+            <h5 class="title-tt">Температура</h5>
+            <div class="temp-align">
+              <img src="images/temperature.png" width="45">
+                <b class="temp_color" id="temperature"></b><b class="inot-tt">°С</b>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h5 class="title-tt">Атмосферное давление</h5>
+            <div class="temp-align">
+              <img src="images/skull.png" width="45">
+                <b class="temp_color" id="pressure"></b><b class="inot-tt">Pa</b>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h5 class="title-tt">Влажность</h5>
+            <div class="temp-align">
+              <img src="images/humidity.png" width="45">
+              <b class="temp_color" id="humidity"></b><b class="inot-tt"> %</b>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h5 class="title-tt">Метры над уровнем моры</h5>
+            <div class="temp-align">
+              <img src="images/water-rise.png" width="45">
+              <b class="temp_color" id="altitude"></b><b class="inot-tt"> m</b>
+            </div>
+          </div>
+        </div>
+        <hr class="hr-tt">
+        <div class="temp-align">
+          <a href="settings.html"><button type="button" class="btn btn-info">Настройки</button></a>
+        </div>
+    </div>
+    <div class="botom-tt">
+    </div>
+  </body>
+</html>

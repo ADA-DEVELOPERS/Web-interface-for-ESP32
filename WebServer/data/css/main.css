@@ -1,0 +1,169 @@
+/*
+File Name: Firmware_TT
+Plugin URI: http://shipilovfamily.com/ada-team
+Description: Файл создан для того чтоб модефецировать прошивку под Датчик давления.
+Author: Shipilov Anaioliy
+Author URI: http://shipilovfamily.com/
+Version: 2.0.1 */
+.notFound{
+  background-image: url(../images/404.png); /* Путь к фоновому изображению */
+  background-color: #21242B;
+}
+
+body{
+  background-color: #21242B!important;
+}
+.clear {
+	clear: both;
+}
+div{
+  color: #fff;
+}
+.name-tt{
+  text-align: center;
+  color: #fff;
+
+}
+b.b-tt {
+    color: #008064;
+}
+h5.title-tt {
+    text-align: center;
+    color: #82f5db;
+    padding-top: 15px;
+}
+hr.hr-tt {
+    border-top: 1px dashed #82f5db;
+}
+.temp-align {
+    text-align: center;
+}
+i.fa {
+    color: #008064;
+    font-size: 30px;
+}
+b.inot-tt{
+  color: #008064;
+  font-size: 30px;
+}
+.temp_color {
+    color: #FFFFFF;
+    font-family: 'Montserrat' , sans-serif;
+    font-size: 45px;
+}
+button.btn.btn-info {
+    background-color: #008064;
+    color: #FFFFFF;
+    padding: 5px 25px;
+    margin: 15px 0 0 25px
+}
+botom-tt{
+  padding: 25px;
+}
+.icon-home-page.infom-home-page {
+    font-size: 45px;
+    text-align: center;
+    color: #008064;
+}
+p.infom-home-page {
+    font-size: 20px;
+    text-align: center;
+    border: 1px solid #69eedb;
+    border-radius: 8px;
+    color: #69eedb;
+}
+.popup-checkbox, .popup {
+  display: none;
+}
+
+.popup {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.popup:before {
+  display: block;
+  content: ' ';
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  opacity: .5;
+}
+
+.popup-content {
+    width: 90%;
+    height: 95%;
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #21242B;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 20px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* padding: 38px 0; */
+    overflow: auto;
+}
+
+.popup-checkbox:checked + .popup {
+  opacity: 1;
+  display: block;
+}
+
+.popup-shower {
+  cursor: pointer;
+
+}
+
+.popup-shower:hover {
+  color: #000;
+
+}
+
+.popup-closer {
+    font-size: 20px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+label.popup-shower {
+    background-color: #008064;
+    color: #FFFFFF;
+    padding: 5px 25px;
+    /* margin: 15px 0 0 25px; */
+}
+input.num-3 {
+    width: 45px;
+}
+input.urls {
+    width: 100%;
+}
+hr.hr-ss {
+    border-top: 1px dashed #82f5db2e;
+}
+b.Version {
+    color: #82f5db;
+}
+input.int {
+    padding: 17px 0 0 5px;
+}
+button.btn.btn-warning {
+    margin: 15px 0 0 0;
+}
+img {
+    margin: 0px 0 10px 0;
+}

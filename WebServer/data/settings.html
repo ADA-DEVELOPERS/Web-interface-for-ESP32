@@ -1,0 +1,285 @@
+<!--
+File Name: Firmware_TT
+Plugin URI: http://shipilovfamily.com/ada-team
+Description: Файл создан для того чтоб модефецировать прошивку под Датчик давления.
+Author: Shipilov Anaioliy and Timkov Daniil
+Author URI: http://shipilovfamily.com/
+Version: 2.0.1  -->
+
+<!DOCTYPE html>
+<html lang="ru-RU">
+  <head>
+    
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/settings.js"></script>
+	<script type="text/javascript" src="js/ipInput.js"></script>
+	<script type="text/javascript" src="js/validator.min.js"></script>
+	
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/ipInput.css">
+
+  </head>
+  	<body>
+
+    	<div class="container">
+      		<h1>Настройки <b class="b-tt">"Датчика"</b></h1>
+      		<hr class="hr-tt">
+			<div class="row">
+				<div class="col-md-3">
+					<label  for="popupCheckboxOne" id="setMqtt" class="popup-shower btn btn-block">Настроить MQTT</label>
+				</div>
+				<div class="col-md-3">
+					<label for="popupCheckboxOne2" id="setLan" class="popup-shower btn btn-block">Настроить сеть</label>
+				</div>
+				<div class="col-md-3">
+					<label for="popupCheckboxOne3" id="setUpgrade" class="popup-shower btn btn-block">Настройка прошивки</label>
+				</div>
+				<div class="col-md-3">
+					<label for="popupCheckboxOne4" id="setConf" class="popup-shower btn btn-block">Конфигурация</label>
+				</div>
+				<div class="col-md-3">
+					<label id="reset" class=" btn btn-danger btn-block">Перезагрузить</label>
+				</div>
+			</div>
+			<!-- ____________________________________Настроить MQTT______________________________________ -->
+    		<div class="popup-wrapper">
+      			<input type="checkbox" class="popup-checkbox" id="popupCheckboxOne">
+      			<div class="popup">
+        			<div class="popup-content">
+          				<h5 class="title-tt">Настроить MQTT</h5>
+          				<BR>
+						<div class="container">
+				
+							<!-- фОРМА MQTT-->
+							<form class="form-horizontal" id="formMqtt">
+						
+								<div class="form-group">
+									<label class="control-label col-sm-2" >Сервер</label>
+									<div class="col-sm-10">
+										<input type="text" id="mqttIP" class="form-control" data-validation="server">
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="control-label col-sm-2" >Порт</label>
+									<div class="col-sm-10">
+										<input type="text" id="mqttPort" class="form-control" data-validation="port">
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="control-label col-sm-2" >Пользователь</label>
+									<div class="col-sm-10">
+										<input type="text" id="mqttUser" class="form-control" data-validation="strENnull">
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="control-label col-sm-2" >Пароль</label>
+									<div class="col-sm-10">
+										<input type="text" id="mqttPas" class="form-control" data-validation="strENnull">
+									</div>
+								</div>
+
+								<div class="col-sm-10">
+									<label class="btn btn-primary mb-0" for="popupCheckboxOne">Закрыть</label>
+									<input type="submit" class="btn btn-danger" value="Сохранить">
+								</div>
+							</form>
+					
+				
+						</div>
+        			</div>
+      			</div>
+    		</div>
+	
+	
+
+					<!-- ____________________________________Настроить сеть______________________________________ -->
+			<div class="popup-wrapper">
+				<input type="checkbox" class="popup-checkbox" id="popupCheckboxOne2">
+				<div class="popup">
+					<div class="popup-content">
+						<h5 class="title-tt">Настроить сеть</h5>
+						<BR>
+
+
+						<!-- фОРМА WIFI-->
+						<h5 class="title-tt">Соединение к wifi:</h5>
+						<div class="container">
+							<form class="form-horizontal" id="formWifi">
+								<div class="form-group">
+									<label class="control-label col-sm-4" >Имя сети:</label>
+									<div class="col-sm-10">
+										<input type="text" id="wifiIp" class="form-control" data-validation="strEN">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4" >Пароль:</label>
+									<div class="col-sm-10">
+										<input type="text" id="wifiPas" class="form-control" data-validation="strENnullpass">
+									</div>
+								</div>
+								<div class="col-sm-10">
+									<input type="submit" class="btn btn-danger" value="Сохранить">
+								</div>
+							</form>	
+						</div>
+						
+						
+						
+						<hr class="hr-tt">
+						<BR>
+
+
+						<!-- фОРМА AP-->
+						<h5 class="title-tt">Точка доступа:</h5>
+						<div class="container">
+							<form class="form-horizontal" id="formAp">
+								<div class="form-group">
+									<label class="control-label col-sm-4" >Имя сети:</label>
+									<div class="col-sm-10">
+										<input type="text" id="ApIp" class="form-control" data-validation="strEN">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-4" >Пароль:</label>
+									<div class="col-sm-10">
+										<input type="text" id="ApPas" class="form-control" data-validation="strENnullpass">
+									</div>
+								</div>
+								<div class="col-sm-10">
+									<input type="submit" class="btn btn-danger" value="Сохранить">
+								</div>
+							</form>	
+						</div>
+					
+						<hr class="hr-tt">
+						<BR>
+
+
+						<!-- фОРМА Сети-->
+						<h5 class="title-tt">Настройка сети:</h5>
+						<div class="container">
+							<div class="form-group">
+								<label class="control-label col-sm-4" >Статический IP</label>
+								<div id="ipStatic" class="col-sm-10"></div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-4" >IP Роутера</label>
+								<div id="ipRouter" class="col-sm-10"></div>
+							</div>
+							<hr class="hr-ss">
+							<div class="form-group">
+								<label class="control-label col-sm-4" >Маска подсети</label>
+								<div id="ipMask" class="col-sm-10"></div>
+							</div>
+							<hr class="hr-ss">
+							<div class="form-group">
+								<label class="control-label col-sm-4" >DNS 1</label>
+								<div id="ipDns1" class="col-sm-10"></div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-4" >DNS 2</label>
+								<div id="ipDns2" class="col-sm-10"></div>
+							</div>
+							<div class="col-sm-10">
+								<input type="button" id="btnSaveLan" class="btn btn-danger" value="Сохранить">
+								<hr class="hr-ss">
+								<label class="btn btn-primary mb-0" for="popupCheckboxOne2">Закрыть</label>
+							</div>
+						</div>
+					</div>
+				</div>
+          	</div>
+        </div>
+			<!-- ____________________________________Настройка прошивки______________________________________ -->
+		<div class="popup-wrapper">
+			<input type="checkbox" class="popup-checkbox" id="popupCheckboxOne3">
+			<div class="popup">
+				<div class="popup-content">
+					<h5 class="title-tt">Настройка прошивки</h5>
+					<BR>
+					<div class="container">
+						<h5 class="title-tv">Версия прошивки: <b class="Version" id="ver">1.2.6</b></h5>
+						<hr class="hr-tt">
+						<div class="form-group">
+							<label class="control-label col-sm-4" >URL</label>
+							<div class="col-sm-10">
+								<input type="text" id="url" class="form-control" data-validation="server">
+							</div>
+							
+							<div class="col-sm-10">
+								<h5 class="title-tt">Проверить обновление в сети?<b class="Version"></b></h5>
+							</div>
+							<div class="col-sm-12">
+								<input type="submit" class="btn btn-primary" value="Проверить обновление">
+								<input type="submit" class="btn btn-danger" value="Установить обновления">
+							</div>
+						</div>
+						<hr class="hr-ss">
+						<hr class="hr-ss">
+						<div class="col-sm-10">
+							<h5 class="title-tt">Обновить через файл?<b class="Version"></b></h5>
+						</div>
+						<BR>
+						<div class="col-md-10">
+							<input class="int" type="file"/>
+						</div>
+						<BR>
+						<div class="col-sm-12">
+							<input type="submit" class="btn btn-danger" value="Установить обновления">
+							<hr class="hr-tt">
+							<label class="btn btn-primary mb-0" for="popupCheckboxOne3">Закрыть</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+					<!-- ____________________________________Конфигурация ______________________________________ -->
+            <div class="popup-wrapper">
+				<input type="checkbox" class="popup-checkbox" id="popupCheckboxOne4">
+				<div class="popup">
+					<div class="popup-content">
+						<h5 class="title-tt">Конфигурация</h5>
+						<BR>
+						<div class="container">
+			
+							<!-- фОРМА Конфигураций-->
+							<form class="form-horizontal" id="formConf">
+								<div class="form-group">
+									<label class="control-label col-sm-2" >Тип модуля</label>
+									<div class="col-sm-10">
+										<input type="text" id="moduleMode" class="form-control" data-validation="strEN">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" >Имя модуля</label>
+									<div class="col-sm-10">
+										<input type="text" id="nameMode" class="form-control" data-validation="strRU">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-sm-2" >Идентификатор</label>
+									<div class="col-sm-10">
+										<input type="text" id="idMode" class="form-control" data-validation="strEN">
+									</div>
+								</div>
+								<div class="col-sm-10">
+									<label class="btn btn-primary mb-0" for="popupCheckboxOne4">Закрыть</label>
+									<input type="submit" class="btn btn-danger" value="Сохранить">
+									
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+            </div>
+        	<hr class="hr-tt">
+			<div class="temp-align">
+				<a href="index.html"><button type="button" class="btn btn-info">На главную</button></a>
+			</div>
+  	</body>
+
+</html>

@@ -10,12 +10,3 @@ void outData() {
   uint32_t chipid = ESP.getEfuseMac();
   jsonWrite(configJson, "flashChip", String(chipid));
 }
-
-void GRAF_init() {
-  HTTP.on("/analog.json", HTTP_GET, []() {
-    String data = graf(5, 10, 20);
-    jsonWrite(data, "points", 20);
-    jsonWrite(data, "refresh", 4000);
-    HTTP.send(200, "application/json", data);
-  });
-}

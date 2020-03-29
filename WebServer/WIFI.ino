@@ -2,8 +2,8 @@
 
 void WIFIinit() {
   // Попытка подключения к точке доступа
-  DynamicJsonBuffer jsonBuffer;
-  JsonObject& root = jsonBuffer.parseObject(settingsNetwork);
+  DynamicJsonDocument root(1024);
+  DeserializationError error = deserializeJson(root, settingsNetwork);
   int apiIp[4] = {0,0,0,0};
   int getIp[4] = {0,0,0,0};
   int masIp[4] = {0,0,0,0};

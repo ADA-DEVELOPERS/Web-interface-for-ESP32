@@ -20,7 +20,6 @@ void setup() {
   Time_init();
   Serial.println("Start WebServer");
   HTTP_init();
-  GRAF_init();
   Bmp280_init();
   Serial.println("Start OTA");
   OTA_init();

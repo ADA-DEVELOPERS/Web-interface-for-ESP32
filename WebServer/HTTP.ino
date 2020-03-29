@@ -46,11 +46,13 @@ void HTTP_init(void) {
   });
 
   HTTP.on("/mqttsave", HTTP_GET, []() {
-    String MqttSave = "{}";
+    String MqttSave = "";
     jsonWrite(MqttSave, "mqttServer", HTTP.arg("mqttServer"));
+    Serial.println(MqttSave);
     jsonWrite(MqttSave, "mqttPort", HTTP.arg("mqttPort"));
     jsonWrite(MqttSave, "mqttUser", HTTP.arg("mqttUser"));
     jsonWrite(MqttSave, "mqttPassword", HTTP.arg("mqttPassword"));
+    Serial.println(MqttSave);
     writeFile("json/settings/Mqtt.json", MqttSave);
     HTTP.send(200, "text / plain", "Save");
   });
@@ -81,26 +83,35 @@ void HTTP_init(void) {
   });
 
   HTTP.on("/lansave", HTTP_GET, []() {
-    DynamicJsonBuffer jsonBuffer;
-    JsonObject& root = jsonBuffer.createObject();
-    JsonArray& apIP = root.createNestedArray("apIP");
-    apIP.add(HTTP.arg("s1").toInt()); apIP.add(HTTP.arg("s2").toInt()); apIP.add(HTTP.arg("s3").toInt()); apIP.add(HTTP.arg("s4").toInt());
-    JsonArray& gateway = root.createNestedArray("gateway");
-    gateway.add(HTTP.arg("r1").toInt()); gateway.add(HTTP.arg("r2").toInt()); gateway.add(HTTP.arg("r3").toInt()); gateway.add(HTTP.arg("r4").toInt());
-    JsonArray& NMask = root.createNestedArray("NMask");
-    NMask.add(HTTP.arg("m1").toInt()); NMask.add(HTTP.arg("m2").toInt()); NMask.add(HTTP.arg("m3").toInt()); NMask.add(HTTP.arg("m4").toInt());
-    JsonArray& primaryDNS = root.createNestedArray("primaryDNS");
-    primaryDNS.add(HTTP.arg("f1").toInt()); primaryDNS.add(HTTP.arg("f2").toInt()); primaryDNS.add(HTTP.arg("f3").toInt()); primaryDNS.add(HTTP.arg("f4").toInt()); 
-    JsonArray& secondaryDNS = root.createNestedArray("secondaryDNS");
-    secondaryDNS.add(HTTP.arg("d1").toInt()); secondaryDNS.add(HTTP.arg("d2").toInt()); secondaryDNS.add(HTTP.arg("d3").toInt()); secondaryDNS.add(HTTP.arg("d4").toInt());
-    root.prettyPrintTo(Serial);
+    DynamicJsonDocument doc(1024);
+
+    
+    doc["apIP"] = serialized("["+ HTTP.arg("s1")  +","+  HTTP.arg("s2").toInt()  +","+ HTTP.arg("s3")  +","+ HTTP.arg("s4")  +"]");
+    doc["gateway"] = serialized("["+ HTTP.arg("r1")  +","+  HTTP.arg("r2")  +","+ HTTP.arg("r3")  +","+ HTTP.arg("r4")  +"]");
+    doc["NMask"] = serialized("["+ HTTP.arg("m1")  +","+  HTTP.arg("m2")  +","+ HTTP.arg("m3")  +","+ HTTP.arg("m4")  +"]");
+    doc["primaryDNS"] = serialized("["+ HTTP.arg("f1")  +","+  HTTP.arg("f2")  +","+ HTTP.arg("f3")  +","+ HTTP.arg("f4")  +"]");
+    doc["secondaryDNS"] = serialized("["+ HTTP.arg("d1")  +","+  HTTP.arg("d2")  +","+ HTTP.arg("d3")  +","+ HTTP.arg("d4")  +"]");
+    
+    //apIP.add(; apIP.add(); apIP.add(); apIP.add();
+    
+    //gateway.add(HTTP.arg("r1").toInt()); gateway.add(HTTP.arg("r2").toInt()); gateway.add(HTTP.arg("r3").toInt()); gateway.add(HTTP.arg("r4").toInt());
+    
+    //NMask.add(HTTP.arg("m1").toInt()); NMask.add(HTTP.arg("m2").toInt()); NMask.add(HTTP.arg("m3").toInt()); NMask.add(HTTP.arg("m4").toInt());
+    
+    //primaryDNS.add(HTTP.arg("f1").toInt()); primaryDNS.add(HTTP.arg("f2").toInt()); primaryDNS.add(HTTP.arg("f3").toInt()); primaryDNS.add(HTTP.arg("f4").toInt()); 
+    
+    //secondaryDNS.add(HTTP.arg("d1").toInt()); secondaryDNS.add(HTTP.arg("d2").toInt()); secondaryDNS.add(HTTP.arg("d3").toInt()); secondaryDNS.add(HTTP.arg("d4").toInt());
+    
+    //root.prettyPrintTo(Serial);
     File configFile = SPIFFS.open("/json/settings/Network.json", "w");
     if (!configFile) {
       HTTP.send(200, "text / plain", "NotSave");
     }
-    String str = "";
-    root.printTo(str);
-    configFile.print(str);
+    String json = "";
+
+    serializeJsonPretty(doc, json);
+    
+    configFile.print(json);
     configFile.close();
     HTTP.send(200, "text / plain", "Save");
   });

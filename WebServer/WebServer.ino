@@ -7,15 +7,15 @@ void setup() {
   Serial.println("");
 
   Serial.println("Start FS");
-  FS_init(); 
+  FS_init();
   Serial.println("FileConfig");
-  
+
   Settings_read();
   Settings_WiFi();
   Settings_Mqtt();
-  
+
   Serial.println("Start WIFI");
-  WIFIinit(); 
+  WIFIinit();
   Serial.println("Start Time");
   Time_init();
   Serial.println("Start WebServer");
@@ -34,4 +34,5 @@ void loop() {
   client.loop();
   MQTT_loop();
   ArduinoOTA.handle();
+  Publish_mqtt();
 }

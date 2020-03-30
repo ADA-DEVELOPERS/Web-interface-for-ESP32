@@ -7,7 +7,6 @@ void HTTP_init(void) {
     jsonWrite(statCon, "wifi", wifiStatus);
     jsonWrite(statCon, "mqtt", mqttStatus);
     jsonWrite(statCon, "home", "off");
-    
     HTTP.send(200, "application/json", statCon);
   });
 
@@ -84,38 +83,22 @@ void HTTP_init(void) {
 
   HTTP.on("/lansave", HTTP_GET, []() {
     DynamicJsonDocument doc(1024);
-
-    
     doc["apIP"] = serialized("["+ HTTP.arg("s1")  +","+  HTTP.arg("s2").toInt()  +","+ HTTP.arg("s3")  +","+ HTTP.arg("s4")  +"]");
     doc["gateway"] = serialized("["+ HTTP.arg("r1")  +","+  HTTP.arg("r2")  +","+ HTTP.arg("r3")  +","+ HTTP.arg("r4")  +"]");
     doc["NMask"] = serialized("["+ HTTP.arg("m1")  +","+  HTTP.arg("m2")  +","+ HTTP.arg("m3")  +","+ HTTP.arg("m4")  +"]");
     doc["primaryDNS"] = serialized("["+ HTTP.arg("f1")  +","+  HTTP.arg("f2")  +","+ HTTP.arg("f3")  +","+ HTTP.arg("f4")  +"]");
     doc["secondaryDNS"] = serialized("["+ HTTP.arg("d1")  +","+  HTTP.arg("d2")  +","+ HTTP.arg("d3")  +","+ HTTP.arg("d4")  +"]");
-    
-    //apIP.add(; apIP.add(); apIP.add(); apIP.add();
-    
-    //gateway.add(HTTP.arg("r1").toInt()); gateway.add(HTTP.arg("r2").toInt()); gateway.add(HTTP.arg("r3").toInt()); gateway.add(HTTP.arg("r4").toInt());
-    
-    //NMask.add(HTTP.arg("m1").toInt()); NMask.add(HTTP.arg("m2").toInt()); NMask.add(HTTP.arg("m3").toInt()); NMask.add(HTTP.arg("m4").toInt());
-    
-    //primaryDNS.add(HTTP.arg("f1").toInt()); primaryDNS.add(HTTP.arg("f2").toInt()); primaryDNS.add(HTTP.arg("f3").toInt()); primaryDNS.add(HTTP.arg("f4").toInt()); 
-    
-    //secondaryDNS.add(HTTP.arg("d1").toInt()); secondaryDNS.add(HTTP.arg("d2").toInt()); secondaryDNS.add(HTTP.arg("d3").toInt()); secondaryDNS.add(HTTP.arg("d4").toInt());
-    
-    //root.prettyPrintTo(Serial);
     File configFile = SPIFFS.open("/json/settings/Network.json", "w");
     if (!configFile) {
       HTTP.send(200, "text / plain", "NotSave");
     }
     String json = "";
-
     serializeJsonPretty(doc, json);
-    
     configFile.print(json);
     configFile.close();
     HTTP.send(200, "text / plain", "Save");
   });
-  
+
   // -------------------Выдаем данные configSetup
   HTTP.on("/restart", HTTP_GET, []() {
     String restart = HTTP.arg("device");          // Получаем значение device из запроса
@@ -126,6 +109,20 @@ void HTTP_init(void) {
     }
     else {                                        // иначе
       HTTP.send(200, "text / plain", "No Reset"); // Oтправляем ответ No Reset
+    }
+  });
+
+  HTTP.onNotFound([]() {
+    if (!handleFileRead(HTTP.uri())){
+      String file404 = "404.html";
+      String contentType = getContentType(file404);
+      if (SPIFFS.exists(file404)) {
+          File file = SPIFFS.open("/" + file404, "r");
+          size_t sent = HTTP.streamFile(file, contentType);
+          file.close();
+      } else {
+        HTTP.send(404, "text/plain", "FileNotFound");
+      }
     }
   });
 

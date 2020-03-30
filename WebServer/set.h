@@ -1,7 +1,7 @@
 #include <WiFi.h>
 #include <WebServer.h>
 #include <ESPmDNS.h>
-#include <WiFiUdp.h>            
+#include <WiFiUdp.h>
 #include <ArduinoOTA.h>         // Прошивка по WIFI
 #include <FS.h>                 // Библиотека для работы с файловой системой esp32
 #include "SPIFFS.h"             // Библиотека для работы с файловой системой esp32
@@ -19,15 +19,6 @@ String mqttStatus = "off";
 String wifiStatus = "disconnect";
 String wifiMode = "no";
 
-//Settings_Network();
-
-
-
-//IPAddress apIP(ip[0], ip[1], ip[2], ip[3]);
-//IPAddress gateway(192, 168, 1, 1); // IP роутера
-//IPAddress NMask(255, 255, 255, 0);
-//IPAddress primaryDNS(8, 8, 8, 8); //optional
-//IPAddress secondaryDNS(8, 8, 4, 4); //optional
 
 //Для файловой системы
 File fsUploadFile;
@@ -59,6 +50,3 @@ String mqttPassword = "";
 String configJson = "{}";
 String timerJson = "{}";
 String analogJson = "{}";
-
-
-

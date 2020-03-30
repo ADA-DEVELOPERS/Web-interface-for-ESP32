@@ -8,24 +8,23 @@ void Settings_read() {
 }
 
 void Settings_WiFi() {
-  
+
   _ssid =         jsonRead(settingsWifi, "ssid");
   _password =     jsonRead(settingsWifi, "password");
   _ssidAP =       jsonRead(settingsAP, "ssidAP");
   _passwordAP =   jsonRead(settingsAP, "passwordAP");
-  
+
   nameMod =       jsonRead(Config, "module");
   idMod =         jsonRead(Config, "name");
   host =          jsonRead(Config, "host");
   Serial.print("Settings WiFi Done >>>>>>");
 }
- 
+
 void Settings_Mqtt() {
   String s = "";
   int n = 0;
 
 
-  host = jsonRead(settingsWifi, "host");
   mqttServer = jsonRead(settingsMqtt, "mqttServer");
   mqttPort = jsonReadtoInt(settingsMqtt, "mqttPort");
   mqttUser = jsonRead(settingsMqtt, "mqttUser");

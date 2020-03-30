@@ -10,6 +10,9 @@ void FS_init(void) {
           file = root.openNextFile();
       }
   }
+
+
+
   //HTTP страницы для работы с FFS
   //list directory
   HTTP.on("/list", HTTP_GET, handleFileList);
@@ -37,25 +40,11 @@ void FS_init(void) {
       HTTP.send(404, "text/plain", "FileNotFound");
   });*/
 
-  HTTP.onNotFound([]() {
-    if (!handleFileRead(HTTP.uri())){
-      String file404 = "404.html";
-      String contentType = getContentType(file404);
-      if (SPIFFS.exists(file404)) {
-          File file = SPIFFS.open("/" + file404, "r");
-          size_t sent = HTTP.streamFile(file, contentType);
-          file.close();
-      } else {
-        HTTP.send(404, "text/plain", "FileNotFound");
-      }
-
-    
-    }
-  });
 
 
 
-  
+
+
 }
 // Здесь функции для работы с файловой системой
 String getContentType(String filename) {
@@ -201,4 +190,3 @@ void handleFileList() {
   output += "]";
   HTTP.send(200, "text/json", output);
 }
-

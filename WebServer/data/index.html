@@ -1,4 +1,4 @@
-<!--
+﻿<!--
 File Name: Firmware_TT
 Plugin URI: http://shipilovfamily.com/ada-team
 Description: Файл создан для того чтоб модефецировать прошивку под Датчик давления.
@@ -15,6 +15,8 @@ Version: 2.0.1
 	<script type="text/javascript" src="js/index.js"></script>
   <link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	
 
   </head>
   <body>
@@ -22,56 +24,56 @@ Version: 2.0.1
       <h1 class="name-tt">Значения <b class="b-tt">"Датчика"</b></h1>
       <hr class="hr-tt">
       <div class="row">
-        <div class="col-md-3">
-        </div>
-        <div class="col-md-2">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
           <div class="icon-home-page infom-home-page">
             <img src="images/homeoff.png" id="homepng" width="55">
           </div>
           <p class="infom-home-page" id="home"></p>
+          <p class="data-conect">Smadt home status</p>
         </div>
-        <div class="col-md-2">
-          <div class="icon-home-page infom-home-page">
-            <img src="images/wifioff.png" id="wifipng" width="55">
-          </div>
-          <p class="infom-home-page" id="wifi"></p>
-        </div>
-        <div class="col-md-2">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
           <div class="icon-home-page infom-home-page">
             <img src="images/mqttoff.png" id="mqttpng" width="55">
           </div>
           <p class="infom-home-page" id="mqtt"></p>
+          <p class="data-conect">MQTT server status</p>
         </div>
-        <div class="col-md-3">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+          <div class="icon-home-page infom-home-page">
+            <img src="images/wifioff.png" id="wifipng" width="55">
+          </div>
+          <p class="infom-home-page" id="wifi"></p>
+        <p class="data-conect">WI-FI status</p>
         </div>
+        
       </div>
       <hr class="hr-tt">
         <div class="row">
-          <div class="col-md-3">
-            <h5 class="title-tt">Температура</h5>
+          <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <h5 class="title-tt">Температура</h5><br>
             <div class="temp-align">
-              <img src="images/temperature.png" width="45">
+              <img src="images/temperature.png" width="30">
                 <b class="temp_color" id="temperature"></b><b class="inot-tt">°С</b>
             </div>
           </div>
-          <div class="col-md-3">
-            <h5 class="title-tt">Атмосферное давление</h5>
+          <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <h5 class="title-tt">Атмосферное давление</h5><br>
             <div class="temp-align">
-              <img src="images/skull.png" width="45">
+              <img src="images/skull.png" width="30">
                 <b class="temp_color" id="pressure"></b><b class="inot-tt">Pa</b>
             </div>
           </div>
-          <div class="col-md-3">
-            <h5 class="title-tt">Влажность</h5>
+          <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <h5 class="title-tt">Влажность</h5><br>
             <div class="temp-align">
-              <img src="images/humidity.png" width="45">
+              <img src="images/humidity.png" width="30">
               <b class="temp_color" id="humidity"></b><b class="inot-tt"> %</b>
             </div>
           </div>
-          <div class="col-md-3">
-            <h5 class="title-tt">Метры над уровнем моря</h5>
+          <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <h5 class="title-tt">Над уровнем моря</h5><br>
             <div class="temp-align">
-              <img src="images/water-rise.png" width="45">
+              <img src="images/water-rise.png" width="30">
               <b class="temp_color" id="altitude"></b><b class="inot-tt"> m</b>
             </div>
           </div>

@@ -1,4 +1,4 @@
-<!--
+﻿<!--
 File Name: Firmware_TT
 Plugin URI: http://shipilovfamily.com/ada-team
 Description: Файл создан для того чтоб модефецировать прошивку под Датчик давления.
@@ -18,6 +18,7 @@ Version: 2.0.1  -->
     <link rel="stylesheet" href="css/bootstrap.min.css" >
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/ipInput.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   </head>
   	<body>
@@ -26,19 +27,21 @@ Version: 2.0.1  -->
       		<h1>Настройки <b class="b-tt">"Датчика"</b></h1>
       		<hr class="hr-tt">
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3">
 					<label  for="popupCheckboxOne" id="setMqtt" class="popup-shower btn btn-block">Настроить MQTT</label>
 				</div>
-				<div class="col-md-3">
+				<div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3">
 					<label for="popupCheckboxOne2" id="setLan" class="popup-shower btn btn-block">Настроить сеть</label>
 				</div>
-				<div class="col-md-3">
+				<div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3">
 					<label for="popupCheckboxOne3" id="setUpgrade" class="popup-shower btn btn-block">Настройка прошивки</label>
 				</div>
-				<div class="col-md-3">
+				<div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-3">
 					<label for="popupCheckboxOne4" id="setConf" class="popup-shower btn btn-block">Конфигурация</label>
+				</div><div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+					
 				</div>
-				<div class="col-md-3">
+				<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 					<label id="reset" class=" btn btn-danger btn-block">Перезагрузить</label>
 				</div>
 			</div>
@@ -56,33 +59,33 @@ Version: 2.0.1  -->
 						
 								<div class="form-group">
 									<label class="control-label col-sm-2" >Сервер</label>
-									<div class="col-sm-10">
+									<div class="col-sm-10 col-md-10">
 										<input type="text" id="mqttIP" class="form-control" data-validation="server">
 									</div>
 								</div>
 								
 								<div class="form-group">
 									<label class="control-label col-sm-2" >Порт</label>
-									<div class="col-sm-10">
+									<div class="col-sm-10 col-md-10">
 										<input type="text" id="mqttPort" class="form-control" data-validation="port">
 									</div>
 								</div>
 								
 								<div class="form-group">
 									<label class="control-label col-sm-2" >Пользователь</label>
-									<div class="col-sm-10">
+									<div class="col-sm-10 col-md-10">
 										<input type="text" id="mqttUser" class="form-control" data-validation="strENnull">
 									</div>
 								</div>
 								
 								<div class="form-group">
 									<label class="control-label col-sm-2" >Пароль</label>
-									<div class="col-sm-10">
+									<div class="col-sm-10 col-md-10">
 										<input type="text" id="mqttPas" class="form-control" data-validation="strENnull">
 									</div>
 								</div>
 
-								<div class="col-sm-10">
+								<div class="col-sm-10 col-md-10">
 									<label class="btn btn-primary mb-0" for="popupCheckboxOne">Закрыть</label>
 									<input type="submit" class="btn btn-danger" value="Сохранить">
 								</div>

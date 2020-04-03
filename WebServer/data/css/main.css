@@ -8,10 +8,16 @@ Version: 2.0.1 */
 .notFound{
   background-image: url(../images/404.png); /* Путь к фоновому изображению */
   background-color: #21242B;
+  background-size: 100% auto;
 }
+
 
 body{
   background-color: #21242B!important;
+}
+container{
+  max-width: 1024px;
+  margin:0px auto;
 }
 .clear {
 	clear: both;
@@ -30,26 +36,26 @@ b.b-tt {
 h5.title-tt {
     text-align: center;
     color: #82f5db;
-    padding-top: 15px;
+    padding-top: 10px;
 }
 hr.hr-tt {
     border-top: 1px dashed #82f5db;
 }
 .temp-align {
     text-align: center;
+    vertical-align: middle;
 }
 i.fa {
     color: #008064;
     font-size: 30px;
 }
-b.inot-tt{
-  color: #008064;
-  font-size: 30px;
+b.inot-tt {
+    color: #008064;
+    font-size: 20px;
 }
 .temp_color {
     color: #FFFFFF;
-    font-family: 'Montserrat' , sans-serif;
-    font-size: 45px;
+    font-size: 25px;
 }
 button.btn.btn-info {
     background-color: #008064;
@@ -166,4 +172,14 @@ button.btn.btn-warning {
 }
 img {
     margin: 0px 0 10px 0;
+}
+p.data-conect {
+    text-align: center;
+    font-size: 15px;
+    color: #008064;
+    vertical-align: text-bottom;
+}
+.h1, h1 {
+    font-size: 2.5rem;
+    text-align: center;
 }
